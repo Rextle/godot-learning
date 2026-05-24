@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bnsbebxbkr42j"]
+
+[ext_resource type="Script" uid="uid://breaeinc32102" path="res://scripts/box.gd" id="1_o5qli"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0wfyh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sugp2"]
+
+[node name="World" type="Node3D" unique_id=1147878501]
+
+[node name="Camera" type="Node" parent="." unique_id=460075359]
+
+[node name="PlayerCamera" type="Camera3D" parent="Camera" unique_id=1444302425]
+transform = Transform3D(1, 0, 0, 0, 0.19204238, 0.98138666, 0, -0.98138666, 0.19204238, 0, 6.8674717, 3.505396)
+
+[node name="Meshes" type="Node" parent="." unique_id=333756400]
+
+[node name="Box" type="MeshInstance3D" parent="Meshes" unique_id=887984046]
+mesh = SubResource("BoxMesh_0wfyh")
+script = ExtResource("1_o5qli")
+
+[node name="SmallBox" type="MeshInstance3D" parent="Meshes/Box" unique_id=347336081]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
+mesh = SubResource("BoxMesh_sugp2")
+
+[node name="Light" type="Node" parent="." unique_id=262263983]
+
+[node name="Sun" type="DirectionalLight3D" parent="Light" unique_id=1549815915]
+transform = Transform3D(1, 0, 0, 0, 0.5275045, 0.8495522, 0, -0.8495522, 0.5275045, 0, 0, 0)
