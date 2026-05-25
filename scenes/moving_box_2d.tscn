@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ba841tid4dwy8"]
+
+[ext_resource type="Script" uid="uid://dnjgau7inu2t4" path="res://scripts/box 2d.gd" id="1_bvka8"]
+
+[node name="World" type="Node2D" unique_id=403525191]
+
+[node name="Box" type="ColorRect" parent="." unique_id=1759393117]
+offset_left = 500.0
+offset_top = 300.0
+offset_right = 600.0
+offset_bottom = 400.0
+color = Color(0, 1, 1, 1)
+script = ExtResource("1_bvka8")
