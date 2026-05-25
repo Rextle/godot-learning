@@ -13,4 +13,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = -500
+	
 	move_and_slide()
