@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c6trwxpap6oh5"]
+
+[ext_resource type="Script" uid="uid://bylb0covw2txn" path="res://scripts/player.gd" id="1_yt0h2"]
+[ext_resource type="Script" uid="uid://c2yx5oc334acq" path="res://scenes/collectable.gd" id="2_jw7sf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npyp2"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmu5j"]
+size = Vector2(600, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myrg4"]
+size = Vector2(40, 40)
+
+[node name="World" type="Node2D" unique_id=1999204010]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1961956398 groups=["Player"]]
+script = ExtResource("1_yt0h2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=47878394]
+position = Vector2(25, 25)
+shape = SubResource("RectangleShape2D_npyp2")
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=528695266]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(0.36708063, 0.12734401, 0.99998444, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1954295001]
+position = Vector2(0, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1280709695]
+position = Vector2(300, 10)
+shape = SubResource("RectangleShape2D_pmu5j")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1251801466]
+offset_right = 600.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Collectable" type="Area2D" parent="." unique_id=1334060880]
+position = Vector2(300, 450)
+script = ExtResource("2_jw7sf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable" unique_id=838859519]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_myrg4")
+
+[node name="ColorRect" type="ColorRect" parent="Collectable" unique_id=73566094]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Collectable2" type="Area2D" parent="." unique_id=244742367]
+position = Vector2(500, 450)
+script = ExtResource("2_jw7sf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable2" unique_id=1176662978]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_myrg4")
+
+[node name="ColorRect" type="ColorRect" parent="Collectable2" unique_id=2116405404]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=162629398]
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=1491868482]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 141.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+
+[connection signal="body_entered" from="Collectable" to="Collectable" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectable2" to="Collectable2" method="_on_body_entered"]

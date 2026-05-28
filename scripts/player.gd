@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var gravity = 980
 var speed = 200
+var score = 0
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
@@ -17,3 +18,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -500
 	
 	move_and_slide()
+	
+func add_score(amount):
+	score += amount
+	var label = get_node("/root/World/HUD/ScoreLabel")
+	label.text = "Score: " + str(score)
