@@ -39,32 +39,6 @@ offset_right = 600.0
 offset_bottom = 20.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Collectable" type="Area2D" parent="." unique_id=1334060880]
-position = Vector2(300, 450)
-script = ExtResource("2_jw7sf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable" unique_id=838859519]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_myrg4")
-
-[node name="ColorRect" type="ColorRect" parent="Collectable" unique_id=73566094]
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Collectable2" type="Area2D" parent="." unique_id=244742367]
-position = Vector2(500, 450)
-script = ExtResource("2_jw7sf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable2" unique_id=1176662978]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_myrg4")
-
-[node name="ColorRect" type="ColorRect" parent="Collectable2" unique_id=2116405404]
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
-
 [node name="HUD" type="CanvasLayer" parent="." unique_id=162629398]
 
 [node name="ScoreLabel" type="Label" parent="HUD" unique_id=1491868482]
@@ -75,5 +49,46 @@ offset_bottom = 65.0
 theme_override_font_sizes/font_size = 32
 text = "Score: 0"
 
-[connection signal="body_entered" from="Collectable" to="Collectable" method="_on_body_entered"]
-[connection signal="body_entered" from="Collectable2" to="Collectable2" method="_on_body_entered"]
+[node name="TimerLabel" type="Label" parent="HUD" unique_id=1909104017]
+offset_left = 800.0
+offset_top = 20.0
+offset_right = 944.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 32
+text = "Timer: 30"
+
+[node name="CountdownTimer" type="Timer" parent="." unique_id=597626828]
+wait_time = 30.0
+autostart = true
+
+[node name="Collectables" type="Node" parent="." unique_id=2059500144]
+
+[node name="Collectable" type="Area2D" parent="Collectables" unique_id=1334060880]
+position = Vector2(300, 450)
+script = ExtResource("2_jw7sf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Collectable" unique_id=838859519]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_myrg4")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Collectable" unique_id=73566094]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Collectable2" type="Area2D" parent="Collectables" unique_id=244742367]
+position = Vector2(500, 450)
+script = ExtResource("2_jw7sf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Collectable2" unique_id=1176662978]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_myrg4")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Collectable2" unique_id=2116405404]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="CountdownTimer" to="Player" method="_on_countdown_timer_timeout"]
+[connection signal="body_entered" from="Collectables/Collectable" to="Collectables/Collectable" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Collectable2" to="Collectables/Collectable2" method="_on_body_entered"]
