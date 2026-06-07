@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b3ad02qfnj7hb"]
+
+[ext_resource type="Script" uid="uid://bylb0covw2txn" path="res://scripts/player.gd" id="1_6keco"]
+[ext_resource type="Script" uid="uid://c2yx5oc334acq" path="res://scripts/collectable.gd" id="2_sfcrh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfcrh"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ucn7"]
+size = Vector2(600, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6keco"]
+size = Vector2(40, 40)
+
+[node name="World" type="Node2D" unique_id=806285658]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=965839429 groups=["Player"]]
+script = ExtResource("1_6keco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=827213572]
+position = Vector2(25, 25)
+shape = SubResource("RectangleShape2D_sfcrh")
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=542373178]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(0.36708063, 0.12734401, 0.99998444, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1790378212]
+position = Vector2(0, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=140817112]
+position = Vector2(300, 10)
+shape = SubResource("RectangleShape2D_2ucn7")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=983820600]
+offset_right = 600.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Collectable" type="Area2D" parent="." unique_id=1647874484]
+position = Vector2(300, 450)
+script = ExtResource("2_sfcrh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable" unique_id=1047853160]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_6keco")
+
+[node name="ColorRect" type="ColorRect" parent="Collectable" unique_id=1554323066]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="body_entered" from="Collectable" to="Collectable" method="_on_body_entered"]

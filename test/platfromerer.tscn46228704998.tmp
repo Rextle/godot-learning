@@ -1,0 +1,327 @@
+[gd_scene format=3 uid="uid://wilof1agb8g4"]
+
+[ext_resource type="Script" uid="uid://mrqlg1ak04fn" path="res://test/test2dcubits.gd" id="1_e2wwm"]
+[ext_resource type="Script" uid="uid://b30hb3we1wngl" path="res://test/test2dcracs.gd" id="2_0jaj7"]
+[ext_resource type="Script" uid="uid://bvejgjdnc73xq" path="res://test/test2dconstra.gd" id="3_lpcqv"]
+[ext_resource type="Script" uid="uid://p0mae5bw4esi" path="res://test/testplatformplayer.gd" id="4_yq8a0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0trvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2wwm"]
+size = Vector2(80, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boc7h"]
+size = Vector2(25, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx5p4"]
+size = Vector2(50, 50)
+
+[node name="World" type="Node2D" unique_id=1382921900]
+
+[node name="Env" type="Node" parent="." unique_id=1008991636]
+
+[node name="ground" type="Node" parent="Env" unique_id=2005692197]
+
+[node name="floor" type="Node" parent="Env/ground" unique_id=1595504139]
+
+[node name="Floor" type="StaticBody2D" parent="Env/ground/floor" unique_id=383787702]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/ground/floor/Floor" unique_id=105298811]
+shape = SubResource("WorldBoundaryShape2D_0trvb")
+
+[node name="ColorRect" type="ColorRect" parent="Env/ground/floor/Floor" unique_id=99440824]
+offset_left = -1000.0
+offset_right = 1000.0
+offset_bottom = 307.0
+color = Color(0, 0, 0, 1)
+
+[node name="platforms" type="Node" parent="Env" unique_id=343637433]
+
+[node name="platform1" type="StaticBody2D" parent="Env/platforms" unique_id=419078128]
+position = Vector2(-74, -205)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/platforms/platform1" unique_id=756037174]
+shape = SubResource("RectangleShape2D_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Env/platforms/platform1" unique_id=671827580]
+offset_left = -40.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+color = Color(0, 0, 0, 1)
+
+[node name="platform2" type="StaticBody2D" parent="Env/platforms" unique_id=2130923397]
+position = Vector2(162, -236)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/platforms/platform2" unique_id=1504485784]
+shape = SubResource("RectangleShape2D_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Env/platforms/platform2" unique_id=1675066660]
+offset_left = -40.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+color = Color(0, 0, 0, 1)
+
+[node name="platform3" type="StaticBody2D" parent="Env/platforms" unique_id=1373414670]
+position = Vector2(35, -397)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/platforms/platform3" unique_id=1165013844]
+shape = SubResource("RectangleShape2D_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Env/platforms/platform3" unique_id=319823594]
+offset_left = -40.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+color = Color(0, 0, 0, 1)
+
+[node name="platform4" type="StaticBody2D" parent="Env/platforms" unique_id=1058668256]
+position = Vector2(-206, -553)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/platforms/platform4" unique_id=664447363]
+shape = SubResource("RectangleShape2D_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Env/platforms/platform4" unique_id=1424422672]
+offset_left = -40.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+color = Color(0, 0, 0, 1)
+
+[node name="platform5" type="StaticBody2D" parent="Env/platforms" unique_id=835724762]
+position = Vector2(39, -680)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/platforms/platform5" unique_id=819126620]
+shape = SubResource("RectangleShape2D_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Env/platforms/platform5" unique_id=742091959]
+offset_left = -40.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+color = Color(0, 0, 0, 1)
+
+[node name="platform6" type="StaticBody2D" parent="Env/platforms" unique_id=40142722]
+position = Vector2(-178, -831)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/platforms/platform6" unique_id=926005803]
+shape = SubResource("RectangleShape2D_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Env/platforms/platform6" unique_id=1307307869]
+offset_left = -40.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
+color = Color(0, 0, 0, 1)
+
+[node name="Collectables" type="Node" parent="." unique_id=336419335]
+
+[node name="Cubit" type="Node" parent="Collectables" unique_id=2074115613]
+
+[node name="cubits1" type="Area2D" parent="Collectables/Cubit" unique_id=1546963286]
+position = Vector2(154, -298)
+script = ExtResource("1_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cubit/cubits1" unique_id=1979365236]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cubit/cubits1" unique_id=133756660]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="cubits2" type="Area2D" parent="Collectables/Cubit" unique_id=1232178216]
+position = Vector2(190, -57)
+script = ExtResource("1_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cubit/cubits2" unique_id=1163201282]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cubit/cubits2" unique_id=580305612]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="cubits3" type="Area2D" parent="Collectables/Cubit" unique_id=1856075607]
+position = Vector2(-79, -280)
+script = ExtResource("1_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cubit/cubits3" unique_id=99563905]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cubit/cubits3" unique_id=1222579296]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="cubits4" type="Area2D" parent="Collectables/Cubit" unique_id=218277723]
+position = Vector2(26, -484)
+script = ExtResource("1_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cubit/cubits4" unique_id=627570572]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cubit/cubits4" unique_id=575888516]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="cubits5" type="Area2D" parent="Collectables/Cubit" unique_id=368952832]
+position = Vector2(-242, -629)
+script = ExtResource("1_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cubit/cubits5" unique_id=1191118160]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cubit/cubits5" unique_id=282172356]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="cubits6" type="Area2D" parent="Collectables/Cubit" unique_id=880902599]
+position = Vector2(19, -753)
+script = ExtResource("1_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cubit/cubits6" unique_id=793828141]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cubit/cubits6" unique_id=1111586225]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="cubits7" type="Area2D" parent="Collectables/Cubit" unique_id=1625055822]
+position = Vector2(-186, -907)
+script = ExtResource("1_e2wwm")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cubit/cubits7" unique_id=1844429406]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cubit/cubits7" unique_id=739250701]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="Cracs" type="Node" parent="Collectables" unique_id=1837136863]
+
+[node name="cracs1" type="Area2D" parent="Collectables/Cracs" unique_id=1946025534]
+position = Vector2(-284, -108)
+script = ExtResource("2_0jaj7")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cracs/cracs1" unique_id=1596330879]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cracs/cracs1" unique_id=1501797961]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="cracs2" type="Area2D" parent="Collectables/Cracs" unique_id=256649556]
+position = Vector2(155, -143)
+script = ExtResource("2_0jaj7")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cracs/cracs2" unique_id=864560894]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cracs/cracs2" unique_id=104293199]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="cracs3" type="Area2D" parent="Collectables/Cracs" unique_id=213144973]
+position = Vector2(-136, -323)
+script = ExtResource("2_0jaj7")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Cracs/cracs3" unique_id=637024]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Cracs/cracs3" unique_id=205296357]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="Constra" type="Node" parent="Collectables" unique_id=1564605976]
+
+[node name="constra1" type="Area2D" parent="Collectables/Constra" unique_id=239909354]
+position = Vector2(-121, -142)
+script = ExtResource("3_lpcqv")
+
+[node name="ColorRect" type="ColorRect" parent="Collectables/Constra/constra1" unique_id=1232899253]
+offset_right = 25.0
+offset_bottom = 25.0
+color = Color(0, 1, 0.09803922, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/Constra/constra1" unique_id=593901688]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_boc7h")
+
+[node name="Platformplayer" type="CharacterBody2D" parent="." unique_id=1053158552 groups=["Player"]]
+position = Vector2(0, -160)
+script = ExtResource("4_yq8a0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platformplayer" unique_id=1187220903]
+position = Vector2(25, 25)
+shape = SubResource("RectangleShape2D_cx5p4")
+
+[node name="ColorRect" type="ColorRect" parent="Platformplayer" unique_id=898818313]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(0, 1, 1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="Platformplayer" unique_id=1378072491]
+
+[node name="HUD" type="CanvasLayer" parent="Platformplayer/Camera2D" unique_id=161454742]
+
+[node name="ScoreLabel" type="Label" parent="Platformplayer/Camera2D/HUD" unique_id=1544599510]
+unique_name_in_owner = true
+offset_left = 217.0
+offset_top = -167.0
+offset_right = 278.0
+offset_bottom = -144.0
+text = "Score: 0"
+
+[node name="HpLabel" type="Label" parent="Platformplayer/Camera2D/HUD" unique_id=1204492148]
+unique_name_in_owner = true
+offset_left = -337.0
+offset_top = -79.0
+offset_right = -293.0
+offset_bottom = -56.0
+text = "HP : 0"
+
+[node name="TimerLabel" type="Label" parent="Platformplayer/Camera2D/HUD" unique_id=469481759]
+unique_name_in_owner = true
+offset_left = 342.0
+offset_top = -81.0
+offset_right = 407.0
+offset_bottom = -58.0
+text = "Time: 60"
+
+[node name="Misc" type="Node" parent="." unique_id=225709341]
+
+[node name="Timer" type="Timer" parent="Misc" unique_id=104879653]
+unique_name_in_owner = true
+wait_time = 60.0
+
+[connection signal="body_entered" from="Collectables/Cubit/cubits1" to="Collectables/Cubit/cubits1" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Cubit/cubits2" to="Collectables/Cubit/cubits2" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Cubit/cubits3" to="Collectables/Cubit/cubits3" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Cubit/cubits4" to="Collectables/Cubit/cubits4" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Cubit/cubits5" to="Collectables/Cubit/cubits5" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Cubit/cubits6" to="Collectables/Cubit/cubits6" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Cubit/cubits7" to="Collectables/Cubit/cubits7" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Cracs/cracs1" to="Collectables/Cracs/cracs1" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Cracs/cracs2" to="Collectables/Cracs/cracs2" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Cracs/cracs3" to="Collectables/Cracs/cracs3" method="_on_body_entered"]
+[connection signal="body_entered" from="Collectables/Constra/constra1" to="Collectables/Constra/constra1" method="_on_body_entered"]
+[connection signal="timeout" from="Misc/Timer" to="Platformplayer" method="_on_timer_timeout"]
